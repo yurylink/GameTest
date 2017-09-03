@@ -16,6 +16,7 @@ public class ColisaoHandler {
 
     List<ColisaoAbstract> listaDeLimites;
 
+    public ColisaoHandler(){
         listaDeLimites = new ArrayList<ColisaoAbstract>();
     }
 
