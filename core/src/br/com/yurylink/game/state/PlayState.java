@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
+import br.com.yurylink.game.MyGdxGame;
 import br.com.yurylink.game.configurations.util.Constantes;
 import br.com.yurylink.handlers.BackgroundHandler;
 import br.com.yurylink.handlers.ColisaoHandler;
@@ -42,7 +43,7 @@ public class PlayState extends State{
         pontuacao = new BitmapFont();
         shapeRenderer = new ShapeRenderer();
         upBtn = new Texture("direcionais\\up32.png");
-
+        
         bg = new BackgroundHandler();
         explosaoHandler = new ExplosaoHandler();
         tirosHandler = new TirosHandler();

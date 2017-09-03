@@ -3,7 +3,6 @@ package br.com.yurylink.colisao;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.physics.box2d.utils.Box2DBuild;
 
 public class MeteorColisao extends ColisaoAbstract{
 

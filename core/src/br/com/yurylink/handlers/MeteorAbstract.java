@@ -4,6 +4,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.Box2D;
 
 import br.com.yurylink.colisao.ColisaoAbstract;
 import br.com.yurylink.colisao.MeteorColisao;
@@ -28,17 +31,21 @@ public class MeteorAbstract {
 
     public boolean isColisao(Rectangle obj){
         for (ColisaoAbstract c:gerenciardorColisao.getLista()) {
-//            if(obj.overlaps(c.getCirculoColisao()){//TODO: corrigir problema de colsisão com circulo
-//                return true;
-//            }
+        	if(c.getBlocoColisao() !=null){
+        		if(obj.overlaps(c.getBlocoColisao())){//TODO: corrigir problema de colsisão com circulo
+                	return true;
+                }
+        	}
         }
         return false;
     }
 
     public boolean isColisao(Circle obj){
         for (ColisaoAbstract c:gerenciardorColisao.getLista()) {
-            if(obj.overlaps(c.getCirculoColisao())){
-                return true;
+            if(c.getCirculoColisao()!=null){
+            	if(obj.overlaps(c.getCirculoColisao())){
+                    return true;
+                }
             }
         }
         return false;

@@ -30,9 +30,9 @@ public class MeteorHandle {
 
     public void gerarMeteoro(OrthographicCamera camera){
         if(RANDOM.nextBoolean()){
-            //add(new MeteoroGrande(RANDOM.nextInt(235),
-             //               (Constantes.GAME_HEIGHT/2) + camera.position.y),
-              //              System.currentTimeMillis());        }
+//            add(new MeteoroGrande(RANDOM.nextInt(235),
+//                            (Constantes.GAME_HEIGHT/2) + camera.position.y),
+//                            System.currentTimeMillis());        }
             add(new MeteoroPequenoAleatorio(RANDOM.nextInt(220),
                     (Constantes.GAME_HEIGHT/2) + camera.position.y),
                     System.currentTimeMillis(), pontuacao * 100);}
@@ -43,8 +43,8 @@ public class MeteorHandle {
             deltaTime = timeMiliSeconds;
             listaMeteoros.add(meteoro);
         }else if (timeMiliSeconds- deltaTime >= (Constantes.METEOROS_TIME_GAP - modificadorDificuldade) + 500l ){
-            //Constantes.printarRelatorio("modificador" + (Constantes.METEOROS_TIME_GAP - modificadorDificuldade) + 500l);
-            //Constantes.printarRelatorio("time:" + timeMiliSeconds + "// delta: " + deltaTime);
+            Constantes.printarRelatorio("modificador" + (Constantes.METEOROS_TIME_GAP - modificadorDificuldade) + 500l);
+            Constantes.printarRelatorio("time:" + timeMiliSeconds + "// delta: " + deltaTime);
             deltaTime = timeMiliSeconds;
             listaMeteoros.add(meteoro);
         }
@@ -59,9 +59,17 @@ public class MeteorHandle {
     public boolean verificarColisao(List<ColisaoAbstract> obj){
         for (MeteorAbstract meteoro:listaMeteoros){
             for (ColisaoAbstract r:obj) {
-                if (meteoro.isColisao(r.getBlocoColisao())){
-                    return true;
-                }
+            	if(r.getBlocoColisao() != null){
+            		if (meteoro.isColisao(r.getBlocoColisao())){
+                        return true;
+                    }
+            	}
+            	if(r.getCirculoColisao() != null){
+            		if (meteoro.isColisao(r.getCirculoColisao())){
+            			return true;
+            		}
+            	}
+                
             }
         }
         return false;

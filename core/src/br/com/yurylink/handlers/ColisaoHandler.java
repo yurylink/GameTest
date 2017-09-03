@@ -16,7 +16,6 @@ public class ColisaoHandler {
 
     List<ColisaoAbstract> listaDeLimites;
 
-    public ColisaoHandler(){
         listaDeLimites = new ArrayList<ColisaoAbstract>();
     }
 
@@ -43,9 +42,11 @@ public class ColisaoHandler {
         for (ColisaoAbstract c: listaDeLimites) {
             if (formato == RECTANGLE){
                 shapeDrawer.rect(c.getBlocoColisao().x, c.getBlocoColisao().y, c.getBlocoColisao().width, c.getBlocoColisao().height);
-            }/*else {
-//                shapeDrawer.circle(c.getBlocoColisao().x+(c.getBlocoColisao().width/2), c.getBlocoColisao().y+(c.getBlocoColisao().height/2), c.getBlocoColisao().width/2);
-            }*/
+            }else {
+                shapeDrawer.circle(c.getCirculoColisao().x+(c.getCirculoColisao().radius),
+                				   c.getCirculoColisao().y+(c.getCirculoColisao().radius), 
+                				   c.getCirculoColisao().radius);
+            }
 
     }
         shapeDrawer.end();
